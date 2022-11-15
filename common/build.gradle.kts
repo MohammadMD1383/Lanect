@@ -16,15 +16,17 @@ kotlin {
 		}
 	}
 	
-	@OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 	sourceSets {
 		val commonMain by getting {
 			dependencies {
-				implementation(fileTree("dir" to "libs", "include" to "*.jar"))
 				api(compose.runtime)
 				api(compose.foundation)
 				api(compose.animation)
-				api(compose.material3)
+				api(compose.material)
+				api(compose.preview)
+				api(compose.ui)
+				api(compose.uiTooling)
+				api(compose.materialIconsExtended)
 			}
 		}
 		
@@ -62,7 +64,7 @@ android {
 	sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 	
 	defaultConfig {
-		minSdk = 24
+		minSdk = 23
 		targetSdk = 33
 	}
 	
